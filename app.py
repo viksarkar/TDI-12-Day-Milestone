@@ -15,7 +15,7 @@ monthdict = {'Jan':'01','Feb':'02','Mar':'03','Apr':'04','May':'05','Jun':'06',
 ticker_error = False
 date_error = False
 if ticker and YYYY!='Select' and MONTH!='Select':
-    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={}&outputsize={}&apikey={}'.format(ticker, 'compact', key)
+    url = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol={}&outputsize={}&apikey={}'.format(ticker, 'full', key)
     response = requests.get(url)
     json_data = response.json()
     if 'Error Message' in list(json_data.keys()):
@@ -39,8 +39,8 @@ if ticker and YYYY!='Select' and MONTH!='Select':
         'Sorry but there is no data for ',MONTH,' ',YYYY,' for',ticker,'. Please try a different date range.'    
     else:
         p = figure(x_axis_type="datetime", x_axis_label="Date", 
-        y_axis_label="Stock price ($)",plot_width=800)
-        p.title.text = ticker+' Adjusted Price'
+        y_axis_label="Stock closing price ($)",plot_width=800)
+        p.title.text = ticker+' Adjusted Closing Price'
         p.title.align = 'center'
         p.title.text_font_size = "25px"
         p.line(x=dates, y=close_price)
