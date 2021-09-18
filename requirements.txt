@@ -6,4 +6,3 @@ altair
 bokeh
 requests
 datetime
-json
