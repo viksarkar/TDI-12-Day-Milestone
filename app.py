@@ -32,16 +32,16 @@ if ticker and YYYY!='Select' and MONTH!='Select':
         if len(dates)==0:
             date_error = True
 
-if ticker_error:
-    'Sorry but we have no data for',ticker,'. Please choose another ticker symbol.'    
-elif date_error:
-    'Sorry but there is no data for ',MONTH,' ',YYYY,' for',ticker,'. Please try a different date range.'    
-else:
-    # 'I am generating the graph'
-    p = figure(x_axis_type="datetime", x_axis_label="Date", 
-            y_axis_label="Stock price ($)",plot_width=800)
-    p.title.text = ticker+' Adjusted Price'
-    p.title.align = 'center'
-    p.title.text_font_size = "25px"
-    p.line(x=dates, y=close_price)
-    st.bokeh_chart(p, use_container_width=True)
+if ticker and YYYY!='Select' and MONTH!='Select':
+    if ticker_error:
+        'Sorry but we have no data for',ticker,'. Please choose another ticker symbol.'    
+    elif date_error:
+        'Sorry but there is no data for ',MONTH,' ',YYYY,' for',ticker,'. Please try a different date range.'    
+    else:
+        p = figure(x_axis_type="datetime", x_axis_label="Date", 
+        y_axis_label="Stock price ($)",plot_width=800)
+        p.title.text = ticker+' Adjusted Price'
+        p.title.align = 'center'
+        p.title.text_font_size = "25px"
+        p.line(x=dates, y=close_price)
+        st.bokeh_chart(p, use_container_width=True)
