@@ -1,6 +1,6 @@
 pandas
 streamlit
 python-dotenv
-bokeh
+bokeh==2.2.0
 requests
 datetime
