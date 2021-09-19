@@ -3,8 +3,10 @@ import pandas as pd
 import requests
 import datetime
 from bokeh.plotting import figure
+import os
 
-key = 'ELUKLXU63BR4D6V5'
+key = os.environ.get('API_Key')
+
 ticker = st.text_input('Please enter your ticker symbol here') 
 years = ['Select','2021','2020','2019','2018','2017','2016','2015']
 months = ['Select','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug', 'Sep','Oct','Nov','Dec']
